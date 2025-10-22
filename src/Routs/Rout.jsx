@@ -6,16 +6,18 @@ import Home from "../Components/Pages/Home";
 import Login from "../Components/Pages/Login";
 import Register from "../Components/Pages/Register";
 import MyProfile from "../Components/Pages/MyProfile";
+import PrivetRout from "./PrivetRout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    Component: Homelayout,
+    element: <Homelayout></Homelayout>,
     children: [
       {
         index: true,
         element: <Home></Home>,
       },
+
       {
         path: "/login",
         Component: Login,
@@ -25,15 +27,15 @@ const router = createBrowserRouter([
         Component: Register,
       },
       {
-        path: '/myprofile',
-        Component:MyProfile
-      }
+        path: "/myprofile",
+        element: <MyProfile></MyProfile>,
+      },
     ],
   },
 
   {
     path: "/navber",
-    Component: Navber,
+    element: <Navber></Navber>,
   },
   {
     path: "/*",

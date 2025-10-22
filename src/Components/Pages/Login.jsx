@@ -49,7 +49,7 @@ const Login = () => {
           </fieldset>
         </form>
         <p>
-          Already have an account{" "}
+           New to our website{" "}
           <Link
             className="text-blue-500 underline hover:text-blue-800"
             to="/register"

@@ -10,18 +10,22 @@ import { auth } from "../Firebase/Firebase.init";
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const creatUser = (email, password) => {
+    setLoading(true)
     return createUserWithEmailAndPassword(auth, email, password);
   };
 
-//user sign in korle fire base e data pawa jabe
+  //user sign in korle fire base e data pawa jabe
   const signInUser = (email, password) => {
+    setLoading(true)
     return signInWithEmailAndPassword(auth, email, password);
   };
-  
-//user sign in korle eta call hbe
+
+  //user sign in korle eta call hbe
   const signOutUser = () => {
+    setLoading(true)
     return signOut(auth);
   };
 
@@ -33,6 +37,7 @@ const AuthProvider = ({ children }) => {
       console.log("courrent user in auth state changed", currentUser);
       //login kora user ke set kortese
       setUser(currentUser);
+      setLoading(false)
     });
     //clear the observer on unmount
     return () => {
@@ -45,6 +50,7 @@ const AuthProvider = ({ children }) => {
     signInUser,
     user,
     signOutUser,
+    loading
   };
 
   return <AuthContext value={userInfo}>{children}</AuthContext>;

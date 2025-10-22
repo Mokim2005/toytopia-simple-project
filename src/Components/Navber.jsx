@@ -18,32 +18,45 @@ const Navber = () => {
 
   const links = (
     <>
-      <NavLink
-        to="/"
-        className={({ isActive }) =>
-          isActive ? "text-blue-500 font-semibold" : ""
-        }
-      >
-        Home
-      </NavLink>
-      <NavLink
-        to="/myprofile"
-        className={({ isActive }) =>
-          isActive ? "text-blue-500 font-semibold" : ""
-        }
-      >
-        My Profile
-      </NavLink>
-      <NavLink
-        to="/register"
-        className={({ isActive }) =>
-          isActive ? "text-blue-500 font-semibold" : ""
-        }
-      >
-        Register
-      </NavLink>
+      {user && (
+        <>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `mr-2 px-3 py-1 rounded transition-all duration-200 ${
+                isActive ? "text-blue-500 font-semibold" : "text-gray-700"
+              } hover:text-blue-600`
+            }
+          >
+            Home
+          </NavLink>
+
+          <NavLink
+            to="/myprofile"
+            className={({ isActive }) =>
+              `mr-2 px-3 py-1 rounded transition-all duration-200 ${
+                isActive ? "text-blue-500 font-semibold" : "text-gray-700"
+              } hover:text-blue-600`
+            }
+          >
+            My Profile
+          </NavLink>
+
+          <NavLink
+            to="/register"
+            className={({ isActive }) =>
+              `mr-2 px-3 py-1 rounded transition-all duration-200 ${
+                isActive ? "text-blue-500 font-semibold" : "text-gray-700"
+              } hover:text-blue-600`
+            }
+          >
+            Register
+          </NavLink>
+        </>
+      )}
     </>
   );
+
   return (
     <div className="navbar bg-base-100 shadow-sm">
       <div className="navbar-start">

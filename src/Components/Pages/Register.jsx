@@ -1,7 +1,7 @@
-import { createUserWithEmailAndPassword } from "firebase/auth";
+
 import React, { use } from "react";
 import { Link } from "react-router";
-import { auth } from "../../Firebase/Firebase.init";
+
 import { AuthContext } from "../../Context/AuthContext";
 
 const Register = () => {
@@ -66,7 +66,7 @@ const Register = () => {
           </fieldset>
         </form>
         <p>
-          New to our website{" "}
+        Already have an account {" "}
           <Link
             className="text-blue-500 underline hover:text-blue-800"
             to="/login"
