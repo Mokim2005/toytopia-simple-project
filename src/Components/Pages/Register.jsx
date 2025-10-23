@@ -1,5 +1,5 @@
 import React, { use, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 
 import Swal from "sweetalert2";
@@ -8,11 +8,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const { creatUser } = use(AuthContext);
+  const { creatUser, updateUser, setUser } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate();
   const handleRegister = (e) => {
     e.preventDefault();
+
+    const name = e.target.name.value;
+    const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
     console.log(email, password);
@@ -37,8 +40,16 @@ const Register = () => {
     // If the password is valid, then call creatUser
     creatUser(email, password)
       .then((result) => {
-        console.log(result);
-
+        const user = result.user;
+        updateUser({ displayName: name, photoURL: photo })
+          .then(() => {
+            setUser({ ...user, displayName: name, photoURL: photo });
+            navigate('/')
+          })
+          .catch((error) => {
+            console.log(error);
+            setUser(user);
+          });
         // Success alert
         Swal.fire({
           title: "Registration Successful!",
@@ -77,7 +88,7 @@ const Register = () => {
               {/* PhotoUrl  */}
               <label className="label">PhotoUrl</label>
               <input
-                name="Photo"
+                name="photo"
                 type="text"
                 className="input"
                 placeholder="PhotoUrl"

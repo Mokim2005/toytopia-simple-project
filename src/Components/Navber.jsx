@@ -2,6 +2,7 @@ import React, { use } from "react";
 import { NavLink } from "react-router";
 import logoImg from "../assets/logo-img.jpeg";
 import { AuthContext } from "../Context/AuthContext";
+import { FaUser } from "react-icons/fa";
 
 const Navber = () => {
   const { user, signOutUser } = use(AuthContext);
@@ -87,14 +88,29 @@ const Navber = () => {
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end gap-x-3">
+        {user && user.photoURL ? (
+          <img
+            src={user.photoURL}
+            alt="User"
+            className="w-12 h-12 rounded-full object-cover"
+          />
+        ) : (
+          <FaUser className="text-3xl text-gray-600" />
+        )}
+
         {user ? (
-          <a onClick={handleSignOut} className="btn">
-            SignOut
-          </a>
+          <button
+            onClick={handleSignOut}
+            className="btn bg-gradient-to-r from-pink-500 to-orange-400 border-none text-white hover:from-orange-400 hover:to-pink-500 transition-all"
+          >
+            LogOut
+          </button>
         ) : (
           <NavLink to="/login">
-            <li className="btn">Login</li>
+            <button className="btn bg-gradient-to-r from-pink-500 to-orange-400 border-none text-white hover:from-orange-400 hover:to-pink-500 transition-all">
+              LogIn
+            </button>
           </NavLink>
         )}
       </div>
