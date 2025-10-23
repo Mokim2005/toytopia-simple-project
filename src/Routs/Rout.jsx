@@ -7,17 +7,20 @@ import Login from "../Components/Pages/Login";
 import Register from "../Components/Pages/Register";
 import MyProfile from "../Components/Pages/MyProfile";
 import ErrorPage from "../Components/Pages/ErrorPage";
-
-
+import PrivetRout from "./PrivetRout";
+import SliderBanner from "../Components/Pages/SliderBanner";
+import Banner from "../Components/Banner";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Homelayout></Homelayout>,
+
     children: [
       {
         index: true,
         element: <Home></Home>,
+        loader: () => fetch("/ToysData.json"),
       },
 
       {
@@ -30,7 +33,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/myprofile",
-        element: <MyProfile></MyProfile>,
+        element: (
+          <PrivetRout>
+            <MyProfile></MyProfile>
+          </PrivetRout>
+        ),
       },
     ],
   },
@@ -41,7 +48,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/*",
-    element: <ErrorPage></ErrorPage>
+    element: <ErrorPage></ErrorPage>,
+  },
+  {
+    path: "/slider",
+    Component: SliderBanner,
+  },
+  {
+    path: "/banner",
+    Component: Banner,
   },
 ]);
 

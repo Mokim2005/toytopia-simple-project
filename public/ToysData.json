@@ -1,0 +1,74 @@
+[
+  {
+    "toyId": 1,
+    "toyName": "Lego Classic Bricks",
+    "sellerName": "Toys R Us Local",
+    "sellerEmail": "contact@toysruslocal.com",
+    "price": 49.99,
+    "rating": 4.7,
+    "availableQuantity": 75,
+    "description": "A timeless set of colorful Lego bricks that encourages creativity and problem-solving. Kids can build anything they imagine, from houses to vehicles.",
+    "pictureURL": "https://i.ibb.co.com/kghDrVdY/91-ENVa47xx-L.jpg",
+    "subCategory": "Building Blocks"
+  },
+  {
+    "toyId": 2,
+    "toyName": "Remote Control Car",
+    "sellerName": "Speedy Wheels Store",
+    "sellerEmail": "sales@speedywheels.com",
+    "price": 39.5,
+    "rating": 4.5,
+    "availableQuantity": 50,
+    "description": "High-speed remote control racing car with rechargeable battery and smooth handling for kids aged 6 and above.",
+    "pictureURL": "https://i.ibb.co.com/3m0fsDDP/Buy-Wiz-Toy-High-Speed-Remote-Control-Car-RC-Car-with-USB-Rechargeable-Battery-Kids-Toy-Car-for-Ages.jpg",
+    "subCategory": "Vehicles"
+  },
+  {
+    "toyId": 3,
+    "toyName": "Dinosaur Action Figure Set",
+    "sellerName": "Jurassic Toys Co.",
+    "sellerEmail": "info@jurassictoys.com",
+    "price": 29.99,
+    "rating": 4.6,
+    "availableQuantity": 120,
+    "description": "A realistic set of dinosaur figures made from durable plastic, perfect for imaginative play and learning.",
+    "pictureURL": "https://i.ibb.co.com/60h8LHNS/images-q-tbn-ANd9-Gc-Qc1-MCq-P4mai3re-Fl-Iws-BK0y5-Q3-S2-Xc-UDH0-Aw-s.jpg",
+    "subCategory": "Action Figures"
+  },
+  {
+    "toyId": 4,
+    "toyName": "Barbie Dreamhouse Doll",
+    "sellerName": "Doll World",
+    "sellerEmail": "support@dollworld.com",
+    "price": 59.99,
+    "rating": 4.8,
+    "availableQuantity": 40,
+    "description": "A beautiful Barbie Dreamhouse complete with accessories and furniture to inspire endless storytelling fun.",
+    "pictureURL": "https://i.ibb.co.com/FL3SmrBX/maxresdefault.jpg",
+    "subCategory": "Dolls"
+  },
+  {
+    "toyId": 5,
+    "toyName": "Wooden Train Set",
+    "sellerName": "Tiny Tracks",
+    "sellerEmail": "orders@tinytracks.com",
+    "price": 34.99,
+    "rating": 4.4,
+    "availableQuantity": 65,
+    "description": "Classic wooden train set with magnetic connectors, bridges, and tracks that spark creative building and storytelling.",
+    "pictureURL": "https://i.ibb.co.com/jkZHm3g4/images-q-tbn-ANd9-Gc-QIKVK8i1o4-Pg-Qao9-Mu9gj-RGT9z-Vh1-Go4xx6w-s.jpg",
+    "subCategory": "Wooden Toys"
+  },
+  {
+    "toyId": 6,
+    "toyName": "Robot Coding Kit",
+    "sellerName": "Techy Kids Hub",
+    "sellerEmail": "contact@techykids.com",
+    "price": 79.99,
+    "rating": 4.9,
+    "availableQuantity": 30,
+    "description": "STEM learning robot kit that teaches kids the basics of coding and robotics through fun interactive play.",
+    "pictureURL": "https://i.ibb.co.com/BHGVCKpt/71s8-6-Pg6-L.jpg",
+    "subCategory": "STEM Toys"
+  }
+]

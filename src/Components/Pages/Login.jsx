@@ -2,11 +2,13 @@ import React, { use, useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [showPassword, setShowPassword] = useState(false);
   const { signInUser, signInWithGoogle } = use(AuthContext);
-  const navigate = useNavigate();
+
   //google sign in
   const handleGoogleSignIn = () => {
     signInWithGoogle()
@@ -27,11 +29,27 @@ const Login = () => {
     console.log(email, password);
     signInUser(email, password)
       .then((result) => {
-        console.log(result);
         e.target.reset();
+        console.log(result);
+        //success alret
+        Swal.fire({
+          title: "Login Successful!",
+          text: "Congratulations 🎉 You have logged in successfully!",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          navigate("/");
+        });
       })
       .catch((error) => {
         console.log(error);
+
+        Swal.fire({
+          title: "Login Failed",
+          text: error.message,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
       });
   };
 
