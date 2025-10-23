@@ -6,7 +6,9 @@ import Home from "../Components/Pages/Home";
 import Login from "../Components/Pages/Login";
 import Register from "../Components/Pages/Register";
 import MyProfile from "../Components/Pages/MyProfile";
-import PrivetRout from "./PrivetRout";
+import ErrorPage from "../Components/Pages/ErrorPage";
+
+
 
 const router = createBrowserRouter([
   {
@@ -39,7 +41,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/*",
-    element: <h2>Error404</h2>,
+    element: <ErrorPage></ErrorPage>
   },
 ]);
 

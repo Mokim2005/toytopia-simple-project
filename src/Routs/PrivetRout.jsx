@@ -1,11 +1,11 @@
 import React, { use } from "react";
 import { AuthContext } from "../Context/AuthContext";
-import { Navigate, useLocation } from "react-router";
+import { Navigate, } from "react-router";
 
 const PrivetRout = ({ children }) => {
   const { user, loading } = use(AuthContext);
 
-  const location = useLocation();
+  console.log(location)
   if (loading) {
     return <span className="loading loading-bars loading-xl"></span>;
   }
@@ -13,7 +13,7 @@ const PrivetRout = ({ children }) => {
   if (user) {
     return children;
   }
-  return <Navigate to="/login" state={{ from: location }} replace />;
+  return <Navigate  to="/login" />;
 };
 
 export default PrivetRout;

@@ -1,5 +1,5 @@
 import React, { use } from "react";
-import { Link, NavLink } from "react-router";
+import { NavLink } from "react-router";
 import logoImg from "../assets/logo-img.jpeg";
 import { AuthContext } from "../Context/AuthContext";
 
@@ -54,6 +54,7 @@ const Navber = () => {
           </NavLink>
         </>
       )}
+
     </>
   );
 
