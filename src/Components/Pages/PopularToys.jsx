@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 const PopularToys = ({ toydata }) => {
   console.log(toydata);
-  const { pictureURL, toyName, rating, availableQuantity, price } = toydata;
+  const { pictureURL, toyName, rating, availableQuantity, price ,toyId} = toydata;
   return (
     <div className="card w-full bg-base-100 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
       <figure className="h-48 bg-gray-100 flex justify-center items-center">
@@ -17,7 +17,7 @@ const PopularToys = ({ toydata }) => {
         <p className="text-md font-bold text-blue-600">${price}</p>
 
         <div className="card-actions mt-3">
-          <Link to='/toysdetails' className="btn btn-primary btn-sm w-full">View More</Link>
+          <Link to={`/toysdetails/${toyId}`} className="btn btn-primary btn-sm w-full">View More</Link>
         </div>
       </div>
     </div>

@@ -43,7 +43,9 @@ const MyProfile = () => {
         </div>
 
         {/* Action Button */}
-        <button className="mt-6 btn btn-primary w-full">Edit Profile</button>
+        <button className="btn w-full mt-2 bg-gradient-to-r from-pink-500 to-orange-400 border-none text-white hover:from-orange-400 hover:to-pink-500 transition-all">
+          Edit Profile
+        </button>
       </div>
     </div>
   );

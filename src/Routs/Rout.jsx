@@ -10,6 +10,7 @@ import ErrorPage from "../Components/Pages/ErrorPage";
 import PrivetRout from "./PrivetRout";
 import SliderBanner from "../Components/Pages/SliderBanner";
 import Banner from "../Components/Banner";
+import ToysDetails from "../Components/Pages/ToysDetails";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,15 @@ const router = createBrowserRouter([
   {
     path: "/banner",
     Component: Banner,
+  },
+  {
+    path: "/toysdetails/:toyId",
+    element: (
+      <PrivetRout>
+        <ToysDetails></ToysDetails>
+      </PrivetRout>
+    ),
+    loader: () => fetch("/ToysData.json"),
   },
 ]);
 

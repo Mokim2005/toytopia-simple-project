@@ -44,7 +44,7 @@ const Register = () => {
         updateUser({ displayName: name, photoURL: photo })
           .then(() => {
             setUser({ ...user, displayName: name, photoURL: photo });
-            navigate('/')
+            navigate("/");
           })
           .catch((error) => {
             console.log(error);
@@ -71,68 +71,95 @@ const Register = () => {
   return (
     <>
       <ToastContainer position="top-center" autoClose={4000} />
+      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-pink-100 to-yellow-100 p-4">
+        <div className="card bg-white w-full max-w-md shadow-2xl rounded-2xl border border-gray-200">
+          <h1 className="font-extrabold text-3xl text-center text-gray-800 mt-6">
+            Please Register!
+          </h1>
 
-      <div className="card bg-base-100 w-full max-w-sm mx-auto shrink-0 shadow-2xl">
-        <h1 className="font-bold text-2xl text-center">Please Register!</h1>
-        <div className="card-body">
-          <form onSubmit={handleRegister}>
-            <fieldset className="fieldset">
-              {/* name  */}
-              <label className="label">Name</label>
-              <input
-                name="name"
-                type="text"
-                className="input"
-                placeholder="Name"
-              />
-              {/* PhotoUrl  */}
-              <label className="label">PhotoUrl</label>
-              <input
-                name="photo"
-                type="text"
-                className="input"
-                placeholder="PhotoUrl"
-              />
-              {/* email  */}
-              <label className="label">Email</label>
-              <input
-                name="email"
-                type="email"
-                className="input"
-                placeholder="Email"
-              />
-              {/* password  */}
-              <label className="label">Password</label>
-              <div className="relative">
+          <div className="card-body">
+            <form onSubmit={handleRegister}>
+              <fieldset className="fieldset space-y-3">
+                {/* name  */}
+                <label className="label font-medium text-gray-700">
+                  Full Name
+                </label>
                 <input
-                  name="password"
-                  type={showPassword ? "text" : "password"}
-                  className="input"
-                  placeholder="Password"
+                  name="name"
+                  type="text"
+                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Enter your name"
+                  required
                 />
-                <button
-                  type="button"
-                  onClick={handleTogglePassword}
-                  className="btn btn-xs absolute top-2 right-5"
-                >
-                  {showPassword ? <FaEyeSlash /> : <FaEye />}
+
+                {/* PhotoUrl  */}
+                <label className="label font-medium text-gray-700">
+                  Photo URL
+                </label>
+                <input
+                  name="photo"
+                  type="text"
+                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Enter photo URL"
+                />
+
+                {/* email  */}
+                <label className="label font-medium text-gray-700">
+                  Email Address
+                </label>
+                <input
+                  name="email"
+                  type="email"
+                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                  placeholder="Enter your email"
+                  required
+                />
+
+                {/* password  */}
+                <label className="label font-medium text-gray-700">
+                  Password
+                </label>
+                <div className="relative">
+                  <input
+                    name="password"
+                    type={showPassword ? "text" : "password"}
+                    className="input input-bordered w-full pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    placeholder="Enter your password"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={handleTogglePassword}
+                    className="absolute top-3 right-3 text-gray-500 hover:text-blue-600"
+                  >
+                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                  </button>
+                </div>
+
+                <div className="text-right mt-1">
+                  <a className="link text-blue-500 hover:text-blue-700 text-sm cursor-pointer">
+                    Forgot password?
+                  </a>
+                </div>
+
+                {/* Register Button */}
+                <button className="btn btn-primary w-full mt-4 hover:scale-[1.02] transition-transform">
+                  Register
                 </button>
-              </div>
-              <div>
-                <a className="link link-hover">Forgot password?</a>
-              </div>
-              <button className="btn btn-neutral mt-4">Register</button>
-            </fieldset>
-          </form>
-          <p>
-            Already have an account{" "}
-            <Link
-              className="text-blue-500 underline hover:text-blue-800"
-              to="/login"
-            >
-              Login
-            </Link>{" "}
-          </p>
+              </fieldset>
+            </form>
+
+            {/* Already have an account */}
+            <p className="text-center mt-4 text-gray-700">
+              Already have an account?{" "}
+              <Link
+                className="text-blue-500 underline hover:text-blue-700 font-medium"
+                to="/login"
+              >
+                Login
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
     </>
