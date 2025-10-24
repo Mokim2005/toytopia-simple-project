@@ -1,20 +1,22 @@
 import React, { use, useState } from "react";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 const Login = () => {
   const navigate = useNavigate();
+   const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
   const { signInUser, signInWithGoogle } = use(AuthContext);
+  const from = location.state?.from?.pathname || "/";
 
   //google sign in
   const handleGoogleSignIn = () => {
     signInWithGoogle()
       .then((result) => {
         console.log(result);
-        navigate();
+        navigate(from, { replace: true });
       })
       .catch((error) => {
         console.log(error);
@@ -38,7 +40,7 @@ const Login = () => {
           icon: "success",
           confirmButtonText: "OK",
         }).then(() => {
-          navigate("/");
+          navigate(from, { replace: true });
         });
       })
       .catch((error) => {

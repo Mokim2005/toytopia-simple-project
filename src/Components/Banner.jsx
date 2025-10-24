@@ -16,7 +16,7 @@ const Banner = () => {
             curiosity and creativity in every child.
           </p>
           <button className="btn bg-gradient-to-r from-pink-500 to-orange-400 border-none text-white hover:from-orange-400 hover:to-pink-500 transition-all">
-            Get Started
+            Buy Now
           </button>
         </div>
       </div>

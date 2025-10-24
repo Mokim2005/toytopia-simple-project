@@ -41,14 +41,14 @@ const Navber = () => {
         My Profile
       </NavLink>
       <NavLink
-        to="/register"
+        to="/topratedpage"
         className={({ isActive }) =>
           `mr-2 px-3 py-1 rounded transition-all duration-200 ${
             isActive ? "text-blue-500 font-semibold" : "text-gray-700"
           } hover:text-blue-600`
         }
       >
-        Register
+        Features
       </NavLink>
     </>
   );
@@ -89,15 +89,22 @@ const Navber = () => {
         <ul className="menu menu-horizontal px-1">{links}</ul>
       </div>
       <div className="navbar-end gap-x-3">
-        {user && user.photoURL ? (
-          <img
-            src={user.photoURL}
-            alt="User"
-            className="w-12 h-12 rounded-full object-cover"
-          />
-        ) : (
-          <FaUser className="text-3xl text-gray-600" />
-        )}
+        <div className="relative group">
+          {user && user.photoURL ? (
+            <>
+              <img
+                src={user.photoURL}
+                alt="User"
+                className="w-12 h-12 rounded-full object-cover cursor-pointer"
+              />
+              <span className="absolute left-1/2 -translate-x-1/2 bottom-[-35px] bg-gray-800 text-white text-sm px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                {user.displayName || "User"}
+              </span>
+            </>
+          ) : (
+            <FaUser className="text-3xl text-gray-600" />
+          )}
+        </div>
 
         {user ? (
           <button

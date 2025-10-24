@@ -11,6 +11,8 @@ import PrivetRout from "./PrivetRout";
 import SliderBanner from "../Components/Pages/SliderBanner";
 import Banner from "../Components/Banner";
 import ToysDetails from "../Components/Pages/ToysDetails";
+import TopRatedToys from "../Components/TopRatedPage";
+import TopRatedPage from "../Components/TopRatedPage";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +42,15 @@ const router = createBrowserRouter([
           </PrivetRout>
         ),
       },
+      {
+        path: "/topratedpage",
+        element: (
+          <PrivetRout>
+            <TopRatedPage></TopRatedPage>
+          </PrivetRout>
+        ),
+        loader: () => fetch("/ToysData.json"),
+      },
     ],
   },
 
@@ -59,11 +70,21 @@ const router = createBrowserRouter([
     path: "/banner",
     Component: Banner,
   },
+
   {
     path: "/toysdetails/:toyId",
     element: (
       <PrivetRout>
         <ToysDetails></ToysDetails>
+      </PrivetRout>
+    ),
+    loader: () => fetch("/ToysData.json"),
+  },
+  {
+    path: "/topratedpage",
+    element: (
+      <PrivetRout>
+        <TopRatedPage></TopRatedPage>
       </PrivetRout>
     ),
     loader: () => fetch("/ToysData.json"),

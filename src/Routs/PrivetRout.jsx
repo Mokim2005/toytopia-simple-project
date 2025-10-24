@@ -13,7 +13,7 @@ const PrivetRout = ({ children }) => {
   if (user) {
     return children;
   }
-  return <Navigate to="/login" />;
+  return <Navigate to="/login" state={{ from: location }} replace />;
 };
 
 export default PrivetRout;
