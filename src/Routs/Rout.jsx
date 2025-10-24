@@ -13,6 +13,7 @@ import Banner from "../Components/Banner";
 import ToysDetails from "../Components/Pages/ToysDetails";
 import TopRatedToys from "../Components/TopRatedPage";
 import TopRatedPage from "../Components/TopRatedPage";
+import WelcomeBanner from "../Components/WelcomeBanner";
 
 const router = createBrowserRouter([
   {
@@ -25,7 +26,10 @@ const router = createBrowserRouter([
         element: <Home></Home>,
         loader: () => fetch("/ToysData.json"),
       },
-
+      {
+        path: "/welcome",
+        Component: WelcomeBanner,
+      },
       {
         path: "/login",
         Component: Login,

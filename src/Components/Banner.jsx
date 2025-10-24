@@ -1,3 +1,6 @@
+
+
+
 const Banner = () => {
   return (
     <div className="hero min-h-screen bg-gradient-to-r from-pink-100 via-orange-100 to-yellow-50">
@@ -12,8 +15,8 @@ const Banner = () => {
             Discover the Joy of Creative Play!
           </h1>
           <p className="py-6 text-gray-700 text-lg">
-            Build, imagine, and explore with our amazing collection of toys that spark
-            curiosity and creativity in every child.
+            Build, imagine, and explore with our amazing collection of toys that
+            spark curiosity and creativity in every child.
           </p>
           <button className="btn bg-gradient-to-r from-pink-500 to-orange-400 border-none text-white hover:from-orange-400 hover:to-pink-500 transition-all">
             Buy Now

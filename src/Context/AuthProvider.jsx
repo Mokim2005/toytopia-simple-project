@@ -11,6 +11,7 @@ import {
 } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.init";
 
+
 const googleProvider = new GoogleAuthProvider();
 
 const AuthProvider = ({ children }) => {
@@ -62,6 +63,7 @@ const AuthProvider = ({ children }) => {
     return updateProfile(auth.currentUser, updatedData);
   };
 
+
   const userInfo = {
     creatUser,
     signInUser,
@@ -71,6 +73,7 @@ const AuthProvider = ({ children }) => {
     loading,
     signInWithGoogle,
     updateUser,
+ 
   };
 
   return <AuthContext value={userInfo}>{children}</AuthContext>;
