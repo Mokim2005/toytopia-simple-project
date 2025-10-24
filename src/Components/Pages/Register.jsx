@@ -71,6 +71,7 @@ const Register = () => {
   return (
     <>
       <ToastContainer position="top-center" autoClose={4000} />
+      <title>Register</title>
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-pink-100 to-yellow-100 p-4">
         <div className="card bg-white w-full max-w-md shadow-2xl rounded-2xl border border-gray-200">
           <h1 className="font-extrabold text-3xl text-center text-gray-800 mt-6">

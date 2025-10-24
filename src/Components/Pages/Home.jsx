@@ -9,6 +9,7 @@ const Home = () => {
   console.log(data);
   return (
     <div>
+      <title>Home</title>
       <Banner></Banner>
       <SliderBanner></SliderBanner>
       <div>

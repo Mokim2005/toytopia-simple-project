@@ -6,6 +6,7 @@ const PopularToys = ({ toydata }) => {
   const { pictureURL, toyName, rating, availableQuantity, price ,toyId} = toydata;
   return (
     <div className="card w-full bg-base-100 shadow-xl rounded-2xl overflow-hidden hover:shadow-2xl transition-all duration-300">
+      <title> Popular-Toys</title>
       <figure className="h-48 bg-gray-100 flex justify-center items-center">
         <img src={pictureURL} alt={toyName} className="h-full w-full object-cover" />
       </figure>

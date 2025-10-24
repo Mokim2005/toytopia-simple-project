@@ -62,6 +62,7 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 py-10 px-4">
+      <title>Login</title>
       <div className="card bg-white/90 backdrop-blur-md w-full max-w-sm mx-auto shadow-2xl rounded-2xl border border-gray-200">
         <h1 className="font-bold text-3xl text-center mt-6 text-gray-800">
           Please Login!

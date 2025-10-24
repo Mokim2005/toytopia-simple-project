@@ -39,6 +39,7 @@ const ToyDetailsCard = ({ toys }) => {
 
   return (
     <div className="max-w-4xl mx-auto bg-white shadow-xl rounded-2xl overflow-hidden my-10">
+      <title>Toy-Details</title>
       {/* Image Section */}
       <div className="relative">
         <img
