@@ -14,6 +14,7 @@ import ToysDetails from "../Components/Pages/ToysDetails";
 import TopRatedToys from "../Components/TopRatedPage";
 import TopRatedPage from "../Components/TopRatedPage";
 import WelcomeBanner from "../Components/WelcomeBanner";
+import Featured from "../Components/Featured";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/welcome",
         Component: WelcomeBanner,
+      },
+      {
+        path: "/featured",
+        Component: Featured,
       },
       {
         path: "/login",
