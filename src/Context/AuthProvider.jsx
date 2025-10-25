@@ -4,13 +4,14 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
+  sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
   signOut,
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../Firebase/Firebase.init";
-
+import { toast } from "react-toastify";
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -62,8 +63,18 @@ const AuthProvider = ({ children }) => {
     if (!auth.currentUser) return;
     return updateProfile(auth.currentUser, updatedData);
   };
-
-
+  const passwordResetEmail = (email) => {
+    if (!email) {
+      toast("⚠️ Please enter your email address.");
+      return;
+    }
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast("✅ Password reset email sent! Redirecting to Gmail...");
+        window.open("https://mail.google.com/mail/u/0/","_blank")
+      })
+      .catch((err) => alert(err.message));
+  };
   const userInfo = {
     creatUser,
     signInUser,
@@ -73,7 +84,7 @@ const AuthProvider = ({ children }) => {
     loading,
     signInWithGoogle,
     updateUser,
- 
+    passwordResetEmail,
   };
 
   return <AuthContext value={userInfo}>{children}</AuthContext>;

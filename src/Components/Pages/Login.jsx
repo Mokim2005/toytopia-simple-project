@@ -1,15 +1,23 @@
-import React, { use, useState } from "react";
+import React, { use, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../../Context/AuthContext";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import Swal from "sweetalert2";
+import { ToastContainer } from "react-toastify";
 
 const Login = () => {
   const navigate = useNavigate();
-   const location = useLocation();
+  const location = useLocation();
   const [showPassword, setShowPassword] = useState(false);
   const { signInUser, signInWithGoogle } = use(AuthContext);
   const from = location.state?.from?.pathname || "/";
+
+  const emailRef = useRef();
+
+  const handleForgotPassword = () => {
+    const email = emailRef.current.value;
+    navigate("/forgot-password", { state: { email } });
+  };
 
   //google sign in
   const handleGoogleSignIn = () => {
@@ -33,6 +41,7 @@ const Login = () => {
       .then((result) => {
         e.target.reset();
         console.log(result);
+
         //success alret
         Swal.fire({
           title: "Login Successful!",
@@ -61,10 +70,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 via-purple-100 to-pink-100 py-10 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] px-4 py-10">
       <title>Login</title>
-      <div className="card bg-white/90 backdrop-blur-md w-full max-w-sm mx-auto shadow-2xl rounded-2xl border border-gray-200">
-        <h1 className="font-bold text-3xl text-center mt-6 text-gray-800">
+      <div className="bg-[#1a1a2e] shadow-2xl rounded-3xl p-8 max-w-sm w-full border border-purple-700/30 hover:border-purple-500 transition-all duration-500 transform hover:scale-[1.02]">
+        <h1 className="font-bold text-3xl text-center mt-6 text-white">
           Please Login!
         </h1>
 
@@ -72,41 +81,45 @@ const Login = () => {
           <form onSubmit={handleLogIn} className="space-y-3">
             <fieldset className="fieldset space-y-3">
               {/* Email */}
-              <label className="label font-medium text-gray-700">Email</label>
+              <label className="label font-medium text-gray-300">Email</label>
               <input
                 name="email"
+                ref={emailRef}
                 type="email"
-                className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
+                className="input input-bordered w-full bg-[#232347] text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-xl px-3 py-2"
                 placeholder="Enter your email"
               />
 
               {/* Password */}
-              <label className="label font-medium text-gray-700">
+              <label className="label font-medium text-gray-300">
                 Password
               </label>
               <div className="relative">
                 <input
                   name="password"
                   type={showPassword ? "text" : "password"}
-                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-blue-400 pr-10"
+                  className="input input-bordered w-full bg-[#232347] text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 rounded-xl px-3 py-2 pr-10"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={handleTogglePassword}
-                  className="btn btn-xs absolute top-2 right-2 bg-transparent border-none text-gray-600 hover:text-blue-600"
+                  className="absolute top-1/2 -translate-y-1/2 right-3 text-gray-400 hover:text-purple-300"
                 >
                   {showPassword ? <FaEyeSlash /> : <FaEye />}
                 </button>
               </div>
 
-              <div className="text-right">
-                <a className="link link-hover text-sm text-blue-600 hover:underline">
+              <div onClick={handleForgotPassword} className="text-right">
+                <Link
+                  to="/forgot-password"
+                  className="link link-hover text-sm text-purple-400 hover:underline"
+                >
                   Forgot password?
-                </a>
+                </Link>
               </div>
 
-              <button className="btn btn-neutral w-full mt-2 hover:bg-gray-800 transition-all duration-300">
+              <button className="btn w-full mt-2 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-xl shadow-lg hover:from-pink-500 hover:to-purple-600 transition-all duration-300">
                 Login
               </button>
             </fieldset>
@@ -118,7 +131,7 @@ const Login = () => {
           {/* Google Login */}
           <button
             onClick={handleGoogleSignIn}
-            className="btn w-full bg-white text-gray-800 border border-gray-300 hover:bg-gray-100 shadow-sm flex items-center gap-2"
+            className="btn w-full bg-[#232347] text-gray-200 border border-purple-600 hover:bg-[#2e2a4d] shadow-sm flex items-center gap-2 transition-colors"
           >
             <svg
               aria-label="Google logo"
@@ -150,18 +163,20 @@ const Login = () => {
             Login with Google
           </button>
 
-          <p className="text-center text-gray-700 mt-4">
+          <p className="text-center text-gray-300 mt-4">
             New to our website?{" "}
             <Link
-              className="text-blue-600 font-medium underline hover:text-blue-800"
+              className="text-purple-400 font-medium underline hover:text-purple-200"
               to="/register"
             >
               Register
             </Link>
           </p>
+        
         </div>
       </div>
     </div>
+     
   );
 };
 

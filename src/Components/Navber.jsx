@@ -23,8 +23,8 @@ const Navber = () => {
       <NavLink
         to="/"
         className={({ isActive }) =>
-          `mr-2 px-3 py-1 rounded transition-all duration-200 ${
-            isActive ? "text-blue-500 font-semibold" : "text-gray-700"
+          `mr-2 px-3 py-1 rounded font-bold text-sm md:text-xl transition-all duration-200 ${
+            isActive ? "text-blue-500 font-semibold underline" : "text-gray-700"
           } hover:text-blue-600`
         }
       >
@@ -33,8 +33,8 @@ const Navber = () => {
       <NavLink
         to="/myprofile"
         className={({ isActive }) =>
-          `mr-2 px-3 py-1 rounded transition-all duration-200 ${
-            isActive ? "text-blue-500 font-semibold" : "text-gray-700"
+          `mr-2 px-3 py-1 font-bold text-sm md:text-xl rounded transition-all duration-200 ${
+            isActive ? "text-blue-500 font-semibold underline" : "text-gray-700"
           } hover:text-blue-600`
         }
       >
@@ -43,8 +43,8 @@ const Navber = () => {
       <NavLink
         to="/topratedpage"
         className={({ isActive }) =>
-          `mr-2 px-3 py-1 rounded transition-all duration-200 ${
-            isActive ? "text-blue-500 font-semibold" : "text-gray-700"
+          `mr-2 px-3 py-1 font-bold text-sm md:text-xl rounded transition-all duration-200 ${
+            isActive ? "text-blue-500 font-semibold underline" : "text-gray-700"
           } hover:text-blue-600`
         }
       >
@@ -54,7 +54,7 @@ const Navber = () => {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-sm">
+    <div className="navbar bg-gradient-to-r from-purple-700 via-pink-500 to-orange-400 shadow-lg">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -97,7 +97,7 @@ const Navber = () => {
                 alt="User"
                 className="w-12 h-12 rounded-full object-cover cursor-pointer"
               />
-              <span className="absolute left-1/2 -translate-x-1/2 bottom-[-35px] bg-gray-800 text-white text-sm px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+              <span className="absolute left-1/2 -translate-x-1/1 bottom-[-20px] bg-gray-800 text-white text-sm px-2 py-1 rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
                 {user.displayName || "User"}
               </span>
             </>

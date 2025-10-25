@@ -6,7 +6,7 @@ import PopularToys from "./PopularToys";
 import WelcomeBanner from "../WelcomeBanner";
 import AOS from "aos"; 
 import "aos/dist/aos.css"; 
-import { AuthContext } from "../../Context/AuthContext";
+
 import Featured from "../Featured";
 
 
@@ -17,9 +17,9 @@ const Home = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000, // animation duration (1s)
-      offset: 100, // how early the animation starts
-      once: true, // animate only once
+      duration: 1000, 
+      offset: 100, 
+      once: true,
     });
   }, []);
 

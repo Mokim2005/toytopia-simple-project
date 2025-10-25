@@ -7,10 +7,12 @@ import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
+
 const Register = () => {
   const { creatUser, updateUser, setUser } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+
   const handleRegister = (e) => {
     e.preventDefault();
 
@@ -18,26 +20,21 @@ const Register = () => {
     const photo = e.target.photo.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
-    //Password Validation Checks
+
+    // Password Validation
     if (password.length < 6) {
       toast.error("❌ Password must be at least 6 characters long!");
       return;
     }
     if (!/[A-Z]/.test(password)) {
-      toast.error(
-        "❌ Password must contain at least one uppercase letter (A–Z)!"
-      );
+      toast.error("❌ Password must contain at least one uppercase letter!");
       return;
     }
     if (!/[a-z]/.test(password)) {
-      toast.error(
-        "❌ Password must contain at least one lowercase letter (a–z)!"
-      );
+      toast.error("❌ Password must contain at least one lowercase letter!");
       return;
     }
 
-    // If the password is valid, then call creatUser
     creatUser(email, password)
       .then((result) => {
         const user = result.user;
@@ -50,10 +47,12 @@ const Register = () => {
             console.log(error);
             setUser(user);
           });
-        // Success alert
+      
+
+
         Swal.fire({
           title: "Registration Successful!",
-          text: "Congratulations 🎉 Your account has been created successfully!",
+          text: "🎉 Your account has been created successfully!",
           icon: "success",
           confirmButtonText: "OK",
         });
@@ -68,99 +67,106 @@ const Register = () => {
     event.preventDefault();
     setShowPassword(!showPassword);
   };
+
   return (
     <>
       <ToastContainer position="top-center" autoClose={4000} />
       <title>Register</title>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-100 via-pink-100 to-yellow-100 p-4">
-        <div className="card bg-white w-full max-w-md shadow-2xl rounded-2xl border border-gray-200">
-          <h1 className="font-extrabold text-3xl text-center text-gray-800 mt-6">
-            Please Register!
+      <div
+        className="min-h-screen flex items-center justify-center
+                      bg-gradient-to-br from-[#0f0c29] via-[#302b63] to-[#24243e] px-4 py-10"
+      >
+        <div className="bg-[#1a1a2e]/90 backdrop-blur-md w-full max-w-md rounded-3xl shadow-2xl border border-purple-700/30 p-8 hover:shadow-purple-500 transition-all duration-500">
+          <h1 className="text-3xl font-extrabold text-center text-white mb-2">
+            Create Your Account
           </h1>
+          <p className="text-center text-gray-300 mb-6">
+            Register to get started!
+          </p>
 
-          <div className="card-body">
-            <form onSubmit={handleRegister}>
-              <fieldset className="fieldset space-y-3">
-                {/* name  */}
-                <label className="label font-medium text-gray-700">
-                  Full Name
-                </label>
-                <input
-                  name="name"
-                  type="text"
-                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  placeholder="Enter your name"
-                  required
-                />
+          <form onSubmit={handleRegister} className="space-y-4">
+            {/* Full Name */}
+            <div>
+              <label className="block text-gray-300 font-medium mb-1">
+                Full Name
+              </label>
+              <input
+                name="name"
+                type="text"
+                placeholder="Enter your full name"
+                className="w-full px-4 py-2 rounded-xl border border-purple-600 bg-[#232347] text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                required
+              />
+            </div>
 
-                {/* PhotoUrl  */}
-                <label className="label font-medium text-gray-700">
-                  Photo URL
-                </label>
-                <input
-                  name="photo"
-                  type="text"
-                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  placeholder="Enter photo URL"
-                />
+            {/* Photo URL */}
+            <div>
+              <label className="block text-gray-300 font-medium mb-1">
+                Photo URL
+              </label>
+              <input
+                name="photo"
+                type="text"
+                placeholder="Enter photo URL"
+                className="w-full px-4 py-2 rounded-xl border border-purple-600 bg-[#232347] text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+              />
+            </div>
 
-                {/* email  */}
-                <label className="label font-medium text-gray-700">
-                  Email Address
-                </label>
-                <input
-                  name="email"
-                  type="email"
-                  className="input input-bordered w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-                  placeholder="Enter your email"
-                  required
-                />
+            {/* Email */}
+            <div>
+              <label className="block text-gray-300 font-medium mb-1">
+                Email Address
+              </label>
+              <input
+                name="email"
+                type="email"
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 rounded-xl border border-purple-600 bg-[#232347] text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition"
+                required
+              />
+            </div>
 
-                {/* password  */}
-                <label className="label font-medium text-gray-700">
-                  Password
-                </label>
-                <div className="relative">
-                  <input
-                    name="password"
-                    type={showPassword ? "text" : "password"}
-                    className="input input-bordered w-full pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                    placeholder="Enter your password"
-                    required
-                  />
-                  <button
-                    type="button"
-                    onClick={handleTogglePassword}
-                    className="absolute top-3 right-3 text-gray-500 hover:text-blue-600"
-                  >
-                    {showPassword ? <FaEyeSlash /> : <FaEye />}
-                  </button>
-                </div>
-
-                <div className="text-right mt-1">
-                  <a className="link text-blue-500 hover:text-blue-700 text-sm cursor-pointer">
-                    Forgot password?
-                  </a>
-                </div>
-
-                {/* Register Button */}
-                <button className="btn btn-primary w-full mt-4 hover:scale-[1.02] transition-transform">
-                  Register
-                </button>
-              </fieldset>
-            </form>
-
-            {/* Already have an account */}
-            <p className="text-center mt-4 text-gray-700">
-              Already have an account?{" "}
-              <Link
-                className="text-blue-500 underline hover:text-blue-700 font-medium"
-                to="/login"
+            {/* Password */}
+            <div className="relative">
+              <label className="block text-gray-300 font-medium mb-1">
+                Password
+              </label>
+              <input
+                name="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Enter your password"
+                className="w-full px-4 py-2 rounded-xl border border-purple-600 bg-[#232347] text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition pr-10"
+                required
+              />
+              <button
+                type="button"
+                onClick={handleTogglePassword}
+                className="absolute top-[70%] -translate-y-1/2 right-3 text-gray-400 hover:text-purple-300"
               >
-                Login
-              </Link>
-            </p>
-          </div>
+                {showPassword ? <FaEyeSlash /> : <FaEye />}
+              </button>
+            </div>
+
+            <div className="text-right">
+              <a className="text-purple-400 text-sm hover:underline cursor-pointer">
+                Forgot password?
+              </a>
+            </div>
+
+            <button className="w-full py-3 mt-4 bg-gradient-to-r from-purple-600 to-pink-500 text-white font-semibold rounded-xl shadow-lg hover:from-pink-500 hover:to-purple-600 transition-all">
+              Register
+            </button>
+          </form>
+
+          <p className="text-center mt-6 text-gray-300">
+            Already have an account?{" "}
+            <Link
+              to="/login"
+              className="text-purple-400 font-medium underline hover:text-purple-200"
+            >
+              Login
+            </Link>
+          </p>
         </div>
       </div>
     </>

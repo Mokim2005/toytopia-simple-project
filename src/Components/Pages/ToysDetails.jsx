@@ -18,7 +18,14 @@ const ToysDetails = () => {
   return (
     <div className="w-11/12 mx-auto">
       <Navber></Navber>
-      <h1 className="font-bold text-3xl text-center py-4">Toys Details</h1>
+      <h1
+        className="text-3xl font-semibold w-full text-center mb-6 
+  text-white bg-gradient-to-r from-yellow-200/50 via-black/50 to-pink-500/50 
+  py-3 rounded-xl backdrop-blur-sm shadow-md mx-auto px-8"
+      >
+        Toys Details
+      </h1>
+
       <ToyDetailsCard toys={toys}></ToyDetailsCard>
       <Footer></Footer>
     </div>

@@ -15,6 +15,7 @@ import TopRatedToys from "../Components/TopRatedPage";
 import TopRatedPage from "../Components/TopRatedPage";
 import WelcomeBanner from "../Components/WelcomeBanner";
 import Featured from "../Components/Featured";
+import ForgotPassword from "../Components/Pages/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         Component: Login,
+      },
+      {
+        path: "/forgot-password",
+        Component: ForgotPassword,
       },
       {
         path: "/register",
