@@ -7,7 +7,7 @@ ToyTopia is a vibrant and playful online marketplace for kids' toys, designed to
 
 ## Live URL
 
-[Your Live Project URL Here]
+https://toytopia-simple-project.web.app/
 
 Open terminal (or command prompt) on your computer.
 
