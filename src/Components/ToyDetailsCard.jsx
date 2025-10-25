@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 const ToyDetailsCard = ({ toys }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
