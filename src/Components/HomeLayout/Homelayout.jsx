@@ -6,11 +6,13 @@ import { ToastContainer } from 'react-toastify';
 
 const Homelayout = () => {
     return (
-        <div className='w-11/12 mx-auto min-h-screen'>
-            <Navber></Navber>
-            <Outlet></Outlet>
-            <Footer></Footer>
-            <ToastContainer></ToastContainer>
+        <div className='min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100'>
+            <div className='w-11/12 mx-auto'>
+                <Navber />
+                <Outlet />
+                <Footer />
+                <ToastContainer />
+            </div>
         </div>
     );
 };
