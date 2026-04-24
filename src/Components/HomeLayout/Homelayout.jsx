@@ -6,8 +6,8 @@ import { ToastContainer } from 'react-toastify';
 
 const Homelayout = () => {
     return (
-        <div className='min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-100'>
-            <div className='w-11/12 mx-auto'>
+       <div className='min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 text-white'>
+            <div className='container mx-auto'>
                 <Navber />
                 <Outlet />
                 <Footer />
