@@ -49,7 +49,6 @@ const Register = () => {
           });
       
 
-
         Swal.fire({
           title: "Registration Successful!",
           text: "🎉 Your account has been created successfully!",

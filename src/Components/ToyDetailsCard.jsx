@@ -3,7 +3,6 @@ import { Link } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 
 
-
 const ToyDetailsCard = ({ toys }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [successModal, setSuccessModal] = useState(false);

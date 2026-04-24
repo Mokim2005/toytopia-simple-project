@@ -29,7 +29,7 @@ const Home = () => {
       <WelcomeBanner></WelcomeBanner>
       <Banner></Banner>
       <SliderBanner></SliderBanner>
-    
+     
       <div data-aos="fade-up">
         <h1 className="font-bold text-3xl md:text-5xl text-center my-5">
           Popular Toys

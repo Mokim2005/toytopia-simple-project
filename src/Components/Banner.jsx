@@ -1,6 +1,3 @@
-
-
-
 const Banner = () => {
   return (
     <div className="hero min-h-screen bg-gradient-to-r from-pink-100 via-orange-100 to-yellow-50">

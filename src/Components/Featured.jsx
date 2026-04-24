@@ -26,7 +26,7 @@ const Featured = () => {
             <span className="text-blue-400">Playtime & Creativity</span>
           </h1>
           <p className="text-gray-300 text-lg">
-            Bring joy to every child’s world with{" "}
+            Bring joy to every child's world with{" "}
             <span className="font-semibold text-fuchsia-400">ToyTopia</span> —
             where fun, learning, and imagination come alive! 🎈
           </p>
